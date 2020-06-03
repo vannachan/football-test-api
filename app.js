@@ -16,7 +16,7 @@ const config = {
 	// controllers: require('./controllers'), 	// only for CMS integration
 	// db: vertex.nedb()
 	db: {
-		url: 'mongodb://localhost/footballdb',
+		url: (process.env.TURBO_ENV == 'dev') ? process.env.MONGODB_URI: process.env.PROD_MONGODB_URI,
 		type: 'mongo',
 		onError: (err) => {
 			console.log('DB CONNECTION FAILED')

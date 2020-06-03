@@ -36,6 +36,18 @@ module.exports = {
         reject(err)
       })
     })
+  },
+
+  put: (id, params) => {
+    return new Promise((resolve, reject) => {
+      Player.findByIdAndUpdate(id, params, {new: true}) // Mongoose specific to return new data instead of old
+      .then(data => {
+        resolve(data)
+      })
+      .catch(err => {
+        reject(err)
+      })
+    })
   }
 
 }

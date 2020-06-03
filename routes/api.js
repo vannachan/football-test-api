@@ -8,15 +8,16 @@ const Team = require('../models/Team')
 router.get('/:resource', (req, res) => {
 	const resource = req.params.resource
 	const controller = controllers[resource]
+	const filters = req.query
 
 	if (controller == null) {
 		res.json({
 			confirmation: 'fail',
-			message: 'Invalid what.'
+			message: 'Invalid resource.'
 		})
 	}
 
-	controller.get()
+	controller.get(filters)
 	.then(data => {
 		res.json({
 			confirmation: 'success',
@@ -39,7 +40,7 @@ router.get('/:resource/:id', (req, res) => {
 	if (controller == null) {
 		res.json({
 			confirmation: 'fail',
-			message: 'Invalid Resource'
+			message: 'Invalid Resource.'
 		})
 		return
 	}

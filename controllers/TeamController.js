@@ -21,7 +21,7 @@ module.exports = {
         resolve(data)
       })
       .catch(err => {
-        reject(err)
+        reject(new Error('Team ' + id + 'not found.'))
       })
     })
   }

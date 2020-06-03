@@ -19,10 +19,10 @@ const config = {
 		url: 'mongodb://localhost/footballdb',
 		type: 'mongo',
 		onError: (err) => {
-			console.log('DB connection failed')
+			console.log('DB CONNECTION FAILED')
 		},
 		onSuccess: () => {
-			console.log('Football db connected!')
+			console.log('FOOTBALL DB CONNECTED!')
 		}
 	}
 }

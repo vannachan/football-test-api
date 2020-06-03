@@ -12,6 +12,54 @@ module.exports = {
         reject(err)
       })
     })
+  },
+
+  getById: (id) => {
+    return new Promise((resolve, reject) => {
+      Player.findById(id)
+      .then(data => {
+        resolve(data)
+      })
+      .catch(err => {
+        reject(new Error('Player ' + id + 'not found.'))
+      })
+    })
+  },
+
+  post: (params) => {
+    return new Promise((resolve, reject) => {
+      Player.create(params)
+      .then(data => {
+        resolve(data)
+      })
+      .catch(err => {
+        reject(err)
+      })
+    })
+  },
+
+  put: (id, params) => {
+    return new Promise((resolve, reject) => {
+      Player.findByIdAndUpdate(id, params, {new: true}) // Mongoose specific to return new data instead of old
+      .then(data => {
+        resolve(data)
+      })
+      .catch(err => {
+        reject(err)
+      })
+    })
+  },
+
+  delete: (id) => {
+    return new Promise((resolve, reject) => {
+      Player.findByIdAndRemove(id)
+      .then(() => {
+        resolve({id: id})
+      })
+      .catch(err => {
+        reject(err)
+      })
+    })
   }
 
 }

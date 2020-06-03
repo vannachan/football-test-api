@@ -1,1 +1,1 @@
-Playing around with Express, Node, MongoDB to make a football API.
+Playing around with Express, Node, MongoDB to make a super simple football API.
